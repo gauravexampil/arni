@@ -1,33 +1,36 @@
 <?php
-  // Replace with your actual receiving email address
-  $receiving_email_address = 'contact@arnicomputer.com';
+header('Content-Type: application/json');
 
-  if (file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php')) {
-    include($php_email_form);
-  } else {
-    die('Unable to load the "PHP Email Form" Library!');
-  }
+$host = "localhost";
+$username = "root";
+$password = "root";
+$database = "arni_institute";
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+$conn = new mysqli($host, $username, $password, $database);
+if ($conn->connect_error) {
+    echo json_encode(["success" => false, "message" => "Database connection failed."]);
+    exit();
+}
 
-  // SMTP Configuration for Arni Computer Institute
-  $contact->smtp = array(
-    'host' => 'smtp.arnicomputer.com', // Use actual SMTP host
-    'username' => 'your-email@arnicomputer.com', // Replace with real email
-    'password' => 'your-email-password', // Use the correct email password
-    'port' => '587', // Usually 587 for TLS, 465 for SSL
-    'encryption' => 'tls' // Use 'ssl' if required
-  );
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$message = $_POST['message'] ?? '';
 
-  $contact->add_message($_POST['name'], 'From');
-  $contact->add_message($_POST['email'], 'Email');
-  $contact->add_message($_POST['message'], 'Message', 10);
+if ($name && $email && $phone && $message) {
+    $stmt = $conn->prepare("INSERT INTO contact_form (name, email, phone, message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $email, $phone, $message);
 
-  echo $contact->send();
+    if ($stmt->execute()) {
+        echo json_encode(["success" => true, "message" => "Message sent successfully!"]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Failed to save message."]);
+    }
+
+    $stmt->close();
+} else {
+    echo json_encode(["success" => false, "message" => "All fields are required."]);
+}
+
+$conn->close();
 ?>

@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/custom.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Mentor
@@ -36,45 +37,36 @@
   ======================================================== -->
 </head>
 
+<!-- ... [Keep the head section as is] ... -->
+
 <body class="contact-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/98kb1 (1).png" alt=""> 
-        
+        <img src="assets/img/98kb1 (1).png" alt="">
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home<br></a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-         <!-- Courses Dropdown -->
-    <li class="dropdown"><a href="#"><span>Courses</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-      <ul>
-        <li><a href="webdesign.html">Web Design</a></li>
-        <li><a href="fullstack.html">Full Stack Development</a></li>
-        <li><a href="python.html">Python Programming</a></li>
-        <li><a href="digitalmrkt.html">Digital Marketing</a></li>
-        <li><a href="graphics.html">Graphic Design</a></li>
-      </ul>
-    
-
-    <li><a href="events.html">Event</a></li>
-    <li><a href="carrer.html">Career</a></li>
-    
-    <li><a href="contact.html">Contact</a></li>
-  </ul> 
+          <li class="dropdown">
+            <a href="#"><span>Courses</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="webdesign.html">Web Design</a></li>
+              <li><a href="fullstack.html">Full Stack Development</a></li>
+              <li><a href="python.html">Python Programming</a></li>
+              <li><a href="digitalmrkt.html">Digital Marketing</a></li>
+              <li><a href="graphics.html">Graphic Design</a></li>
+            </ul>
           </li>
-          
+          <li><a href="events.html">Event</a></li>
+          <li><a href="carrer.html">Career</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-     
-
     </div>
   </header>
 
@@ -87,131 +79,110 @@
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1>Contact</h1>
-              <p class="mb-0">Welcome to Arni computer Insistute.</p>
+              <p class="mb-0">Welcome to Arni Computer Institute.</p>
             </div>
           </div>
         </div>
       </div>
       <center>
-          <ul>
-            <li><a href="index.html">Home</a>>>Contact</li>
-            
-          </ul></center>
         
-      </nav>
-    </div><!-- End Page Title -->
+          <li><a href="index.html">Home</a> >> Contact</li>
+        </ul>
+      </center>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
       <div class="mb-5" data-aos="fade-up" data-aos-delay="200">
         <iframe style="border:0; width: 100%; height: 300px;" src="https://www.google.com/maps?q=Arni+Computer+Institute,+Joy+Hub+Building,+Ambernath+West&output=embed" allowfullscreen loading="lazy"></iframe>
-      </div><!-- End Google Maps -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
-
           <div class="col-lg-4">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
                 <h3>Address</h3>
-                <p>office 113/114, 1st floor Joy hub Building, opp to nagar </p>
-                <p>parishad, station road, ambernath west 421503.</p>
+                <p>Office 113/114, 1st floor Joy Hub Building, opp to nagar</p>
+                <p>parishad, station road, Ambernath West 421503.</p>
               </div>
-            </div><!-- End Info Item -->
-
+            </div>
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Call Us</h3>
-                <p> 7304035211 / 9112435211</p>
+                <p>7304035211 / 9112435211</p>
               </div>
-            </div><!-- End Info Item -->
-
+            </div>
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
                 <p>arnicomputers@gmail.com</p>
               </div>
-            </div><!-- End Info Item -->
-
+            </div>
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
+            <form id="contact-form" action="forms/contact.php" method="post" class="p-4 bg-white shadow rounded">
+              <div class="row g-4">
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input type="text" id="name" name="name" class="form-control rounded-pill" required>
                 </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Your Email</label>
+                  <input type="email" id="email" name="email" class="form-control rounded-pill" required>
                 </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Contact Number</label>
+                  <input type="text" id="phone" name="phone" class="form-control rounded-pill" pattern="\d{10}" maxlength="10" required>
                 </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                <div class="col-12">
+                  <label for="message" class="form-label">Your Message</label>
+                  <textarea id="message" name="message" class="form-control rounded" rows="5" required></textarea>
                 </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-gradient px-5 py-2 mt-3">Send Message</button>
                 </div>
-
+                <div id="form-status" class="mt-3"></div>
               </div>
             </form>
-          </div><!-- End Contact Form -->
-
+          </div>
         </div>
-
       </div>
-
-    </section><!-- /Contact Section -->
-
+    </section>
   </main>
 
   <footer id="footer" class="footer position-relative dark-background">
-
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Arni computer</span>
-          </a>
+          <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">Arni Computer</span></a>
           <div class="footer-contact pt-3">
-            <p>office 113/114, 1st floor Joy hub Building, opp to nagar</p>
-            <p>parishad, station road, ambernath west 421503.</p>
+            <p>Office 113/114, 1st floor Joy Hub Building, opp to nagar</p>
+            <p>parishad, station road, Ambernath West 421503.</p>
             <p class="mt-3"><strong>Phone:</strong> <span>7304035211 / 9112435211</span></p>
             <p><strong>Email:</strong> <span>arnicomputers@gmail.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
-        
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="webdesign.html">Web Design</a></li>
+            <li><a href="fullstack.html">FullStackDevlopment</a></li>
+            <li><a href="python.html">Python programming</a></li>
+            <li><a href="digitalmrkt.html">DigtalMarketing</a></li>
+            <li><a href="graphics.html">Graphic Design</a></li>
           </ul>
         </div>
 
@@ -225,14 +196,11 @@
             <div class="sent-message">Your subscription request has been sent. Thank you!</div>
           </form>
         </div>
-
       </div>
     </div>
-
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Arni Coomputer</strong> <span>All Rights Reserved</span></p>
-     
-
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Arni Computer</strong> <span>All Rights Reserved</span></p>
+    </div>
   </footer>
 
   <!-- Scroll Top -->
@@ -252,6 +220,32 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const statusBox = document.getElementById("form-status");
 
+      fetch("forms/contact.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          statusBox.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+          form.reset();
+        } else {
+          statusBox.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+        }
+      })
+      .catch(err => {
+        console.error("AJAX Error:", err);
+        statusBox.innerHTML = `<div class="alert alert-danger">Something went wrong. Please try again later.</div>`;
+      });
+    });
+  </script>
+
+</body>
 </html>

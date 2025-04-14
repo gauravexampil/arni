@@ -1464,7 +1464,7 @@ section,
   content: "";
   position: absolute;
   display: block;
-  width: 60px;
+  width: 100px;
   height: 1px;
   background: var(--accent-color);
   bottom: 0;
@@ -1881,6 +1881,21 @@ section,
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
+.btn-gradient {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  transform: scale(1.05);
+  color: #fff;
+}
+
 
 /*--------------------------------------------------------------
 # Starter Section Section
